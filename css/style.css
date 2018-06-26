@@ -49,6 +49,10 @@ ul {
 	text-align: center;
 }
 
+.fb-share-button a {
+	text-align: center;
+}
+
 .fontMax {
 	font-size: 40px;
 	color: red

@@ -8,6 +8,20 @@
 		
 	</head>
 	<body>
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+		<script>
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0';
+			  fjs.parentNode.insertBefore(js, fjs);
+			}
+			(document, 'script', 'facebook-jssdk'));
+		</script>
+	<!-- /Load Facebook SDK for JavaScript -->
+
 		<div id="content">
 			<div class="divTop">
 				<!-- niveau -->
@@ -40,6 +54,7 @@
 			<div class="results" v-if="fin">
 				<p>Niveau atteint: {{ niveauMaxAtteint }} </p>
 				<p>Nombre de mots saisis correctement: {{ motsCorrectsSaisis }}</p>
+				<div class="fb-share-button" data-href="#" data-layout="button" data-size="small" data-mobile-iframe="false"><a target="_blank" href="#" class="fb-xfbml-parse-ignore">Partager sur Facebook</a></div>
 			</div>
 			<!-- Meilleurs scores-->
 			<div class="bestScores">
@@ -53,7 +68,6 @@
 				</table>
 			</div>
 		</div>
-
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>	
 	<script type="text/javascript" src="app.js"></script>
 	</body>

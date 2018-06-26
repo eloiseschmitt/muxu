@@ -62,9 +62,18 @@ let app = new Vue({
   	},
 
   	randomWords: function() { //f° affichage mots
-  		var index = Math.floor(Math.random()*this.words.length)
-  		this.word = this.words[index].word
-
+      //nouveau tableau de mot de - de 5 lettres:
+      function infA5(element) {
+        return element.word.length <= 5
+      }
+     if(this.niveauActuel <=2) { //En dessous du niveau 2, les mots affichés font moins de 6 lettres
+        this.$smallWords = this.words.filter(infA5)
+        var index = Math.floor(Math.random()*this.$smallWords.length)
+        this.word = this.$smallWords[index].word
+      } else {
+        var index = Math.floor(Math.random()*this.words.length)
+        this.word = this.words[index].word
+      }
   	},
 
   	control: function() { //f° controle des mots saisis
@@ -95,7 +104,7 @@ let app = new Vue({
   			this.fin = true
         for(var $i=0 ; $i<this.bestScores.length ; $i++) {
             if(this.motsOkConsecutifs > this.bestScores[$i].score){
-              this.bestScores[$i].score = this.motsOkConsecutifs
+              this.bestScores[$i].score = this.motsCorrectsSaisis
               this.bestScores[$i].nom = this.playerName
               this.bestScores[$i].pluriel = true
               this.word = "Perdu! Mais tu es dans le top 5, bravo!"
@@ -107,6 +116,10 @@ let app = new Vue({
 
     modTempsMax: function(nbmotsConsecutifs, nbMotsParMinute) { //f° mod affichage temps compteur
       return this.seconds = Math.round((60*nbmotsConsecutifs)/nbMotsParMinute)
+    },
+
+    smallWords: function(elements) {
+      return elements.word.length <= 5
     }
   }
 
