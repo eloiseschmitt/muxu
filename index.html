@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<title>Muxu muxu jeu</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+		
+	</head>
+	<body>
+		<div id="content">
+			<div class="divTop">
+				<!-- niveau -->
+				<div>
+					<p>Niveau {{ niveauActuel }}</p>
+				</div>
+				<!-- compteur -->
+				<div>
+					<p>Compteur <br><span :class="maxTimer? 'fontMax' : '' ">{{ seconds }}</span></p>
+				</div>
+				<!-- nb mots restant -->
+				<div>
+					<p>Mots corrects<br>
+					{{ motsOkConsecutifs }} / {{ nbmotsConsecutifs }}</p>
+				</div>
+			</div>
+			<!-- Input pseudo -->
+			<div class="inputCentral" v-if="!pseudo">
+				<label>Quel est ton pseudo?</label>
+				<input type="text" placeholder="Ton pseudo" v-model="playerName">
+				<button v-if="" type="submit" @click="recPseudo">Valider</button>
+			</div>
+			<!-- INPUT CENTRAL -->
+			<div class="inputCentral" v-else="pseudo">
+				<label>{{ word }}</label>
+				<input ref="answer" :class="!success ? 'bgRed' : ''" type="text" placeholder="Tapez ici le plus rapidement possible" v-model="motSaisi" @keyup="control">
+				<button v-if="!jeu" type="submit" @click="start">Jouer</button>
+			</div>
+			<!-- Résultats finaux -->
+			<div class="results" v-if="fin">
+				<p>Niveau atteint: {{ niveauMaxAtteint }} </p>
+				<p>Nombre de mots saisis correctement: {{ motsCorrectsSaisis }}</p>
+			</div>
+			<!-- Meilleurs scores-->
+			<div class="bestScores">
+				<h2>Top 5</h2>
+				<ul>
+					<li v-for="(score, index) in bestScores">
+						<span class="capitalize">{{ score.nom }}</span> - {{ score.score }} mot<span v-if="score.pluriel">s</span>
+						</table>
+					</li>
+				</ul>
+				</table>
+			</div>
+		</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>	
+	<script type="text/javascript" src="app.js"></script>
+	</body>
+</html> 

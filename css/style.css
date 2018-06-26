@@ -1,0 +1,95 @@
+body {
+	background: radial-gradient(circle, #2d213e, #180c29);
+	font-family: arial;
+	font-weight: 700;
+}
+
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+}
+
+#content {
+	width: 60%;
+	margin: auto;
+}
+
+.bestScores h2, .bestScores ul {
+	text-align: center;
+	color: #fff;
+}
+
+.bgRed {
+	border: 2px solid red;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.divTop {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: #e3e3e3;
+	font-size: 23px;
+	margin-top: 15%;
+}
+
+.divTop div {
+	min-width: 170px;
+	border: 1px solid #e3e3e3;
+	border-radius: 3px;
+}
+
+.divTop div p {
+	text-align: center;
+}
+
+.fontMax {
+	font-size: 40px;
+	color: red
+}
+
+.inputCentral {
+	margin-top: 5%;
+}
+
+.inputCentral label, .inputCentral input, .inputCentral button, .results p {
+	width: 50%;
+	display: block;
+	margin: auto;
+	font-size: 23px;
+}
+
+.inputCentral button {
+	width: 20%;
+	font-size: 30px;
+	color: #180c29;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.inputCentral input {
+	min-height: 60px;
+	border-radius: 3px;
+	background-color: #e3e3e3;
+	margin: 20px auto;
+}
+
+.inputCentral label, .results p{
+	color: #e3e3e3;
+	font-size: 40px;
+	text-align: center;
+}
+
+.results {
+	margin-top: 2%;
+}
+
+.results p {
+	font-size: 30px;
+}
